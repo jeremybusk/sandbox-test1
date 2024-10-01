@@ -1,0 +1,24 @@
+name: Echo HI on New PR
+
+on:
+  push:
+    branches:
+      - main
+    # paths:
+    #   - "disable"
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
+    # paths:
+    #   - "disable"
+
+jobs:
+  echo-hi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo HI
+        run: echo "HI"
